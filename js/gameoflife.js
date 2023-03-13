@@ -18,10 +18,23 @@ const printCell = (cell, state) => {
   // } else {
   //   return `\u25A2`;
   // }
-  return contains.call(this, cell) ? `\u25A3` : `\u25A2`;
+  return contains.call(state, cell) ? `\u25A3` : `\u25A2`;
 };
 
-const corners = (state = []) => {};
+const corners = (state = []) => {
+  // if (state === []) {
+  if (state.length === 0) {
+    return { topRight: [0, 0], bottomLeft: [0, 0] };
+  } else {
+    const xs = state.map(([x, _]) => x);
+    const ys = state.map(([_, y]) => y);
+    const minX = Math.min(...xs);
+    const minY = Math.min(...ys);
+    const maxX = Math.max(...xs);
+    const maxY = Math.max(...ys);
+    return { topRight: [minX, minY], bottomLeft: [maxX, maxY] };
+  }
+};
 
 const printCells = (state) => {};
 
