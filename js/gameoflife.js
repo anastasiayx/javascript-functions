@@ -32,7 +32,7 @@ const corners = (state = []) => {
     const minY = Math.min(...ys);
     const maxX = Math.max(...xs);
     const maxY = Math.max(...ys);
-    return { topRight: [minX, minY], bottomLeft: [maxX, maxY] };
+    return { bottomLeft: [minX, minY], topRight: [maxX, maxY] };
   }
 };
 
