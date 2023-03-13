@@ -13,7 +13,7 @@ function contains(cell) {
 }
 
 const printCell = (cell, state) => {
-  if (state.contains(cell)) {
+  if (contains(cell).call(state)) {
     return `\u25A3`;
   } else {
     return `\u25A2`;
