@@ -36,7 +36,22 @@ const corners = (state = []) => {
   }
 };
 
-const printCells = (state) => {};
+const printCells = (state) => {
+  const [minX, minY] = corners(state).bottomLeft;
+  const [maxX, maxY] = corners(state).topRight;
+  let result = '';
+  let count = 0;
+  for (let j = maxY; j >= minY; j--) {
+    for (let i = minX; i <= maxX; i++) {
+      if (count % 3 === 0) {
+        result += `\n`;
+      }
+      result += printCell([i, j], state) + ' ';
+      count++;
+    }
+  }
+  return result;
+};
 
 const getNeighborsOf = ([x, y]) => {};
 
