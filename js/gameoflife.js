@@ -80,8 +80,6 @@ const getNeighborsOf = ([x, y]) => {
   return result;
 };
 
-console.log(getNeighborsOf([2, 2]));
-
 const getLivingNeighbors = (cell, state) => {};
 
 const willBeAlive = (cell, state) => {};
