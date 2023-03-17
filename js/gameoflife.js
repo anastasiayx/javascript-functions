@@ -69,13 +69,18 @@ const getNeighborsOf = ([x, y]) => {
   const maxX = x + 1;
   const minX = x - 1;
   let result = [];
-  for (let y = minY; y <= maxY; y++) {
-    for (let x = minX; x <= maxX; x++) {
-      result.push([x, y]);
+  for (let j = minY; j <= maxY; j++) {
+    for (let i = minX; i <= maxX; i++) {
+      if (i === x && j === y) {
+        continue;
+      }
+      result.push([i, j]);
     }
   }
   return result;
 };
+
+console.log(getNeighborsOf([2, 2]));
 
 const getLivingNeighbors = (cell, state) => {};
 
