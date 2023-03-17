@@ -81,14 +81,17 @@ const getNeighborsOf = ([x, y]) => {
 };
 
 const getLivingNeighbors = (cell, state) => {
-  const neighbors = getNeighborsOf(cell);
-  const livingNeighbors = [];
-  for (let i = 0; i < neighbors.length; i++) {
-    if (contains.call(state, neighbors[i])) {
-      livingNeighbors.push(neighbors[i]);
-    }
-  }
-  return livingNeighbors;
+  // const neighbors = getNeighborsOf(cell);
+  // const livingNeighbors = [];
+  // for (let i = 0; i < neighbors.length; i++) {
+  //   if (contains.call(state, neighbors[i])) {
+  //     livingNeighbors.push(neighbors[i]);
+  //   }
+  // }
+  // return livingNeighbors;
+  return getNeighborsOf(cell).filter((neighbor) =>
+    contains.bind(state)(neighbor)
+  );
 };
 
 const willBeAlive = (cell, state) => {};
