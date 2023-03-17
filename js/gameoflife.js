@@ -63,7 +63,19 @@ const printCells = (state) => {
   return accumulator;
 };
 
-const getNeighborsOf = ([x, y]) => {};
+const getNeighborsOf = ([x, y]) => {
+  const maxY = y + 1;
+  const minY = y - 1;
+  const maxX = x + 1;
+  const minX = x - 1;
+  let result = [];
+  for (let y = minY; y <= maxY; y++) {
+    for (let x = minX; x <= maxX; x++) {
+      result.push([x, y]);
+    }
+  }
+  return result;
+};
 
 const getLivingNeighbors = (cell, state) => {};
 
