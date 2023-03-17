@@ -80,7 +80,16 @@ const getNeighborsOf = ([x, y]) => {
   return result;
 };
 
-const getLivingNeighbors = (cell, state) => {};
+const getLivingNeighbors = (cell, state) => {
+  const neighbors = getNeighborsOf(cell);
+  const livingNeighbors = [];
+  for (let i = 0; i < neighbors.length; i++) {
+    if (contains.call(state, neighbors[i])) {
+      livingNeighbors.push(neighbors[i]);
+    }
+  }
+  return livingNeighbors;
+};
 
 const willBeAlive = (cell, state) => {};
 
