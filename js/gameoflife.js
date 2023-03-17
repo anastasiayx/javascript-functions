@@ -37,20 +37,30 @@ const corners = (state = []) => {
 };
 
 const printCells = (state) => {
-  const [minX, minY] = corners(state).bottomLeft;
-  const [maxX, maxY] = corners(state).topRight;
-  let result = '';
-  let count = 0;
-  for (let j = maxY; j >= minY; j--) {
-    for (let i = minX; i <= maxX; i++) {
-      if (count % 3 === 0) {
-        result += `\n`;
-      }
-      result += printCell([i, j], state) + ' ';
-      count++;
+  // const [minX, minY] = corners(state).bottomLeft;
+  // const [maxX, maxY] = corners(state).topRight;
+  // let result = '';
+  // let count = 0;
+  // for (let j = maxY; j >= minY; j--) {
+  //   for (let i = minX; i <= maxX; i++) {
+  //     if (count % 3 === 0) {
+  //       result += `\n`;
+  //     }
+  //     result += printCell([i, j], state) + ' ';
+  //     count++;
+  //   }
+  // }
+  // return result;
+  const { bottomLeft, topRight } = corners(state);
+  let accumulator = '';
+  for (let y = topRight[1]; y >= bottomLeft[1]; y--) {
+    let row = [];
+    for (let x = bottomLeft[0]; x <= topRight[0]; x++) {
+      row.push(printCell([x, y], state));
     }
+    accumulator += row.join(' ') + '\n';
   }
-  return result;
+  return accumulator;
 };
 
 const getNeighborsOf = ([x, y]) => {};
